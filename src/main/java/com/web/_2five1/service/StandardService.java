@@ -17,7 +17,7 @@ public class StandardService {
         this.standardRepository = standardRepository;
         this.composerRepository = composerRepository;
     }
-    // Usiamo lo stesso approccio della prof per i dati iniziali
+    //approccio della prof per i dati iniziali
     @PostConstruct
     public void init() {
         if (composerRepository.count() == 0) {
@@ -25,9 +25,9 @@ public class StandardService {
             Composer gershwin = composerRepository.save(new Composer("George Gershwin"));
             Composer davis = composerRepository.save(new Composer("Miles Davis"));
 
-            standardRepository.save(new JazzStandard("Autumn Leaves", "Gm", kosma));
-            standardRepository.save(new JazzStandard("Summertime", "Am", gershwin));
-            standardRepository.save(new JazzStandard("So What", "Dm", davis));
+            standardRepository.save(new JazzStandard("Autumn Leaves", "Gm", kosma,"autumn.png"));
+            standardRepository.save(new JazzStandard("Summertime", "Am", gershwin,"summertime.png"));
+            standardRepository.save(new JazzStandard("So What", "Dm", davis, "so-what.png"));
         }
     }
 

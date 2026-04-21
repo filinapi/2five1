@@ -12,7 +12,7 @@ public class JazzStandard {
 
     @Column(nullable = false)
     private String title;
-
+    private String sheetFileName;
     private String originalKey; // Es: "F", "Bb", "Eb"
 
     // Molti standard sono scritti da un solo autore
@@ -24,10 +24,11 @@ public class JazzStandard {
     public JazzStandard() {}
 
     // Costruttore comodo per popolare il DB
-    public JazzStandard(String title, String originalKey, Composer composer) {
+    public JazzStandard(String title, String originalKey, Composer composer, String sheetFileName) {
         this.title = title;
         this.originalKey = originalKey;
         this.composer = composer;
+        this.sheetFileName = sheetFileName;
     }
 
     // --- GETTER E SETTER ---
@@ -42,4 +43,10 @@ public class JazzStandard {
 
     public Composer getComposer() { return composer; }
     public void setComposer(Composer composer) { this.composer = composer; }
+
+    public String getSheetFileName(){ return sheetFileName;}
+
+    public void setSheetFileName(String sheetFileName) {
+        this.sheetFileName = sheetFileName;
+    }
 }
