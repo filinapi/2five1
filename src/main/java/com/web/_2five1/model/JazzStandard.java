@@ -12,23 +12,26 @@ public class JazzStandard {
 
     @Column(nullable = false)
     private String title;
-    private String sheetFileName;
+
     private String originalKey; // Es: "F", "Bb", "Eb"
+
 
     // Molti standard sono scritti da un solo autore
     @ManyToOne
     @JoinColumn(name = "composer_id") // Questa sarà la colonna (FK) nel database
     private Composer composer;
-
+    private String sheetFileName;
+    private String progression;
     // Costruttore vuoto obbligatorio
     public JazzStandard() {}
 
     // Costruttore comodo per popolare il DB
-    public JazzStandard(String title, String originalKey, Composer composer, String sheetFileName) {
+    public JazzStandard(String title, String originalKey, Composer composer, String sheetFileName, String progression) {
         this.title = title;
         this.originalKey = originalKey;
         this.composer = composer;
         this.sheetFileName = sheetFileName;
+        this.progression = progression;
     }
 
     // --- GETTER E SETTER ---
@@ -48,5 +51,9 @@ public class JazzStandard {
 
     public void setSheetFileName(String sheetFileName) {
         this.sheetFileName = sheetFileName;
+    }
+    public String getProgression() { return progression; }
+    public void setProgression(String progression) {
+        this.progression = progression;
     }
 }
